@@ -1,10 +1,14 @@
 import unittest
+from unittest import mock
+from datetime import datetime
+import freezegun
 
 from xmllet import parse_file, register_filters, register_types
 from tests.ndw import NDW_FILTERS, NDW_TYPES
 
 class ParseTestCase(unittest.TestCase):
 
+    @freezegun.freeze_time("2018-06-28")
     def test_parse(self):
         # Expected output
         output = [
